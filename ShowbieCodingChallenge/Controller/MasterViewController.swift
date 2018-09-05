@@ -96,6 +96,7 @@ class MasterViewController: UITableViewController {
                 let user = users[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.user = user
+                controller.userDataEntryDelegate = self
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -143,5 +144,21 @@ class MasterViewController: UITableViewController {
     }
 
 
+}
+
+extension MasterViewController: UserDataEntryDelegate {
+    
+    func shouldUpdateValidEmail(emailString: String) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? RandomUserTableCell else { return }
+        cell.emailLabel.text = emailString
+    }
+    
+    func shouldResetEmail() {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? RandomUserTableCell else { return }
+        cell.emailLabel.text = users[indexPath.row].email
+    }
+    
 }
 

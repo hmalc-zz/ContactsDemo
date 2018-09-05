@@ -35,21 +35,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Select a user to see their information" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="19.5" y="273" width="281.5" height="23.5"/>
+                                <rect key="frame" x="19" y="273" width="281.5" height="23.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T7u-PN-NTu" customClass="UserImageView" customModule="ShowbieCodingChallenge" customModuleProvider="target">
-                                <rect key="frame" x="7.5" y="72" width="80" height="80"/>
+                                <rect key="frame" x="7" y="72" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="o9n-h1-mz5"/>
                                     <constraint firstAttribute="height" constant="80" id="t9W-K2-WF7"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xnZ-KQ-Mhl">
-                                <rect key="frame" x="95.5" y="74" width="217.5" height="76"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xnZ-KQ-Mhl">
+                                <rect key="frame" x="95" y="67" width="217.5" height="90.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-ws-Qpa">
                                         <rect key="frame" x="0.0" y="0.0" width="217.5" height="29"/>
@@ -57,14 +57,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-Si-0jz">
-                                        <rect key="frame" x="0.0" y="29" width="217.5" height="23.5"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMK-7z-b5Y">
+                                        <rect key="frame" x="0.0" y="33" width="217.5" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-PT-9AE">
-                                        <rect key="frame" x="0.0" y="52.5" width="217.5" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="67" width="217.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="m0j-GL-VJf">
-                                <rect key="frame" x="7.5" y="160" width="305.5" height="106"/>
+                                <rect key="frame" x="7" y="160" width="305.5" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vob-8I-Oe8">
                                         <rect key="frame" x="0.0" y="0.0" width="305.5" height="23.5"/>
@@ -123,7 +123,7 @@
                         <outlet property="ageLabel" destination="6su-le-Kvf" id="RrC-Tz-WgL"/>
                         <outlet property="birthdayLabel" destination="bJV-rS-amX" id="tQ3-Mh-rRM"/>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
-                        <outlet property="emailLabel" destination="N8o-Si-0jz" id="9g1-gF-l5b"/>
+                        <outlet property="emailEntryTextField" destination="NMK-7z-b5Y" id="cwt-qp-7ma"/>
                         <outlet property="localLabel" destination="DWh-9A-grF" id="6Wa-vQ-XCr"/>
                         <outlet property="nameLabel" destination="OZq-ws-Qpa" id="Ig2-2P-9Fq"/>
                         <outlet property="phoneLabel" destination="X6T-PT-9AE" id="EPX-9Y-lMK"/>

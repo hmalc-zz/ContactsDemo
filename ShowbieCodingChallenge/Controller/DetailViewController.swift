@@ -8,12 +8,15 @@
 
 protocol UserDataEntryDelegate {
     func shouldUpdateValidEmail(emailString: String)
+    func shouldResetEmail()
 }
 
 import UIKit
 
 class DetailViewController: UIViewController {
 
+    var userDataEntryDelegate: UserDataEntryDelegate?
+    
     var user: RandomUser? {
         didSet {
             //configureView()
@@ -23,7 +26,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var userImageView: UserImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailEntryTextField: UITextField!
     @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var streetAddressLabel: UILabel!
@@ -35,8 +38,15 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         configureView()
+        configureTextField()
+    }
+    
+    func configureTextField(){
+        emailEntryTextField.addTarget(self, action: #selector(DetailViewController.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        emailEntryTextField.layer.borderWidth = 2
+        emailEntryTextField.layer.cornerRadius = emailEntryTextField.bounds.size.height/2
+        emailEntryTextField.clipsToBounds = true
     }
     
     func configureView() {
@@ -44,7 +54,8 @@ class DetailViewController: UIViewController {
         guard let userDetail = self.user else { configureInititalView(); return }
         userImageView.assignImage(for: userDetail, imageSize: .large)
         nameLabel.text = userDetail.name.formattedName
-        emailLabel.text = userDetail.email
+        emailEntryTextField.text = userDetail.email
+        
         phoneLabel.text = userDetail.cell
         
         streetAddressLabel.text = userDetail.location.street.capitalized
@@ -59,7 +70,7 @@ class DetailViewController: UIViewController {
     
     func configureAppearance(displayUser: Bool){
         let userRelatedViews: [UIView] = [nameLabel,
-                                          emailLabel,
+                                          emailEntryTextField,
                                           phoneLabel,
                                           streetAddressLabel,
                                           localLabel,
@@ -70,7 +81,26 @@ class DetailViewController: UIViewController {
         userRelatedViews.forEach({$0.isHidden = !displayUser})
         detailDescriptionLabel.isHidden = displayUser
     }
+    
 
+}
 
+extension DetailViewController: UITextFieldDelegate {
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else {
+            emailEntryTextField.backgroundColor = UIColor.white
+            return
+        }
+        let backgroundColorToAssign = text.isValidEmail() ? UIColor.cyan : UIColor.red
+        emailEntryTextField.layer.borderColor = backgroundColorToAssign.cgColor
+        if text.isValidEmail() {
+            userDataEntryDelegate?.shouldUpdateValidEmail(emailString: text)
+        } else {
+            userDataEntryDelegate?.shouldResetEmail()
+        }
+    }
+
+    
 }
 
