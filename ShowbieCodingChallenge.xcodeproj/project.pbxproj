@@ -19,7 +19,7 @@
 		B4EB922F213F57A5004B77D3 /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB922E213F57A5004B77D3 /* RandomUser.swift */; };
 		B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */; };
 		B4EB9235213F74C9004B77D3 /* RandomUserTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */; };
-		B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9236213F7D29004B77D3 /* ImageHelper.swift */; };
+		B4EB9237213F7D29004B77D3 /* ImageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9236213F7D29004B77D3 /* ImageViewHelper.swift */; };
 		B4EB923F213F901C004B77D3 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */; };
 		B4EB9242213F9391004B77D3 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9241213F9391004B77D3 /* UserImageView.swift */; };
 		B4EB9246213FA2D5004B77D3 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9245213FA2D5004B77D3 /* Example.json */; };
@@ -62,7 +62,7 @@
 		B4EB922E213F57A5004B77D3 /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
 		B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserTableCell.swift; sourceTree = "<group>"; };
 		B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomUserTableCell.xib; sourceTree = "<group>"; };
-		B4EB9236213F7D29004B77D3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		B4EB9236213F7D29004B77D3 /* ImageViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewHelper.swift; sourceTree = "<group>"; };
 		B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		B4EB9241213F9391004B77D3 /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
 		B4EB9245213FA2D5004B77D3 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Example.json; path = ShowbieCodingChallenge/Model/Example.json; sourceTree = SOURCE_ROOT; };
@@ -170,7 +170,7 @@
 				B4EB9240213F937C004B77D3 /* Subclass */,
 				B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */,
 				B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */,
-				B4EB9236213F7D29004B77D3 /* ImageHelper.swift */,
+				B4EB9236213F7D29004B77D3 /* ImageViewHelper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,7 +342,7 @@
 				B4EB91FB213F55C8004B77D3 /* AppDelegate.swift in Sources */,
 				B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */,
 				B4EB922F213F57A5004B77D3 /* RandomUser.swift in Sources */,
-				B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */,
+				B4EB9237213F7D29004B77D3 /* ImageViewHelper.swift in Sources */,
 				B4EB923F213F901C004B77D3 /* FoundationExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

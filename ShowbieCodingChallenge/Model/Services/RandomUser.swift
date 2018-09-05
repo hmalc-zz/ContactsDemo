@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// API as mapped from documentation reference: https://randomuser.me/documentation#results
+/// API as mapped from documentation reference: https://randomuser.me/documentation
 
 struct RandomUserAPIResponse: Codable {
     
