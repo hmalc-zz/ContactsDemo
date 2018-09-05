@@ -13,7 +13,7 @@ fileprivate enum RandomUserAPIError: Error {
     case urlSessionError(error: Error)
     case responseHandlingError(msg: String)
     case decodingError(error: Error)
-    case invalidMockFile
+    case invalidMockFile(msg: String)
 }
 
 /// A class to manage requesting and decoding data from the RandomUser APi
@@ -25,11 +25,12 @@ class RandomUserAPIService {
     
     typealias RandomUserResponse = (RandomUserAPIResponse?, Error?) -> Void
     
-    private static let API_BASE_URL = "https://randomuser.me/api/"
-    private static let API_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ"
+    static let API_BASE_URL = "https://randomuser.me/api/"
+    static let API_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     fileprivate enum SupportedRandomUserNationalityCode: String {
         case canada = "CA"
+        
         static func getUrlSegment(supportedNationalityCodes: [SupportedRandomUserNationalityCode]) -> String {
             if supportedNationalityCodes.isEmpty { return "" }
             return "nat=" + supportedNationalityCodes.map({$0.rawValue.lowercased()}).joined(separator: ",")
@@ -45,13 +46,13 @@ class RandomUserAPIService {
     /// - Returns: Returns an optional `RandomUserAPIResponse` struct containing all returned data including users and an optional error.
     
     private static func constructUrlForRequest(nationalityCodes: [SupportedRandomUserNationalityCode]? = nil, multipleResultsRequested: Int = 50) -> String {
-        let urlString = API_BASE_URL
+        let baseUrlString = API_BASE_URL
         var queryToInclude: [String] = []
         if let nationalityCodesToQuery = nationalityCodes {
             queryToInclude.append(SupportedRandomUserNationalityCode.getUrlSegment(supportedNationalityCodes: nationalityCodesToQuery))
         }
         queryToInclude.append("results=\(multipleResultsRequested)")
-        return urlString + (queryToInclude.isEmpty ? "" : "?") + queryToInclude.joined(separator: "&")
+        return baseUrlString + (queryToInclude.isEmpty ? "" : "?") + queryToInclude.joined(separator: "&")
     }
     
     // MARK: URL Requests
@@ -60,7 +61,7 @@ class RandomUserAPIService {
     ///
     /// - Parameter completion: A `RandomUserResponse` containing up to 50 users from Canada as per API docs
     
-    static func fetchCanadianRandomUsers(completion: @escaping RandomUserResponse) -> Void {
+    static func fetch50RandomCanadianUsers(completion: @escaping RandomUserResponse) -> Void {
         let urlString = constructUrlForRequest(nationalityCodes: [.canada], multipleResultsRequested: 50)
         guard let url = URL(string: urlString) else {
             completion(nil, RandomUserAPIError.invalidInputsError(msg: "Could not initialise `\(urlString)` as valid URL object"))

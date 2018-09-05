@@ -49,7 +49,7 @@ class MasterViewController: UITableViewController {
     }
     
     @objc func fetchData(){
-        RandomUserAPIService.fetchCanadianRandomUsers { (response, error) in
+        RandomUserAPIService.fetch50RandomCanadianUsers { (response, error) in
             guard let fetchedUsers = response?.results else { self.handleFetchDataError(); return }
             self.users = fetchedUsers
         }

@@ -22,6 +22,8 @@
 		B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9236213F7D29004B77D3 /* ImageHelper.swift */; };
 		B4EB923F213F901C004B77D3 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */; };
 		B4EB9242213F9391004B77D3 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9241213F9391004B77D3 /* UserImageView.swift */; };
+		B4EB9246213FA2D5004B77D3 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9245213FA2D5004B77D3 /* Example.json */; };
+		B4EB9247213FA6D8004B77D3 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9245213FA2D5004B77D3 /* Example.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		B4EB9236213F7D29004B77D3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		B4EB9241213F9391004B77D3 /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
+		B4EB9245213FA2D5004B77D3 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Example.json; path = ShowbieCodingChallenge/Model/Example.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,7 @@
 		B4EB922D213F56D1004B77D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4EB9245213FA2D5004B77D3 /* Example.json */,
 				B4EB923B213F8FEF004B77D3 /* Helper */,
 				B4EB922A213F5633004B77D3 /* Services */,
 			);
@@ -301,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EB9246213FA2D5004B77D3 /* Example.json in Resources */,
 				B4EB9235213F74C9004B77D3 /* RandomUserTableCell.xib in Resources */,
 				B4EB9207213F55CB004B77D3 /* LaunchScreen.storyboard in Resources */,
 				B4EB9204213F55CB004B77D3 /* Assets.xcassets in Resources */,
@@ -312,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EB9247213FA6D8004B77D3 /* Example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
