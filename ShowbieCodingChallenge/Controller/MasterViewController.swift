@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum MasterVCSegue: String {
+    case showDetail = "showDetail"
+}
+
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
@@ -15,6 +19,7 @@ class MasterViewController: UITableViewController {
     var users = [RandomUser]() {
         didSet {
             DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
         }
@@ -27,7 +32,7 @@ class MasterViewController: UITableViewController {
 
     }
     
-    func fetchData(){
+    @objc func fetchData(){
         RandomUserAPIService.fetchCanadianRandomUsers { (response, error) in
             guard let fetchedUsers = response?.results else { self.handleFetchDataError(); return }
             self.users = fetchedUsers
@@ -40,6 +45,7 @@ class MasterViewController: UITableViewController {
     
     func configureUI(){
         configureTableView()
+        configureRefreshView()
         navigationItem.leftBarButtonItem = editButtonItem
         //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         //navigationItem.rightBarButtonItem = addButton
@@ -47,6 +53,14 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+    }
+    
+    func configureRefreshView(){
+        self.refreshControl = UIRefreshControl()
+        self.tableView.alwaysBounceVertical = true
+        self.refreshControl?.tintColor = UIColor.black
+        self.refreshControl?.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        //self.tableView.addSubview(refresher)
     }
     
     func configureTableView(){
@@ -62,7 +76,7 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == MasterVCSegue.showDetail.rawValue {
             if let indexPath = tableView.indexPathForSelectedRow {
                 //let object = users[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
@@ -94,6 +108,10 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: MasterVCSegue.showDetail.rawValue, sender: nil)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
