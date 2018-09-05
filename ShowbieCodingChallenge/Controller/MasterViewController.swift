@@ -16,9 +16,25 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     
+    fileprivate lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.color = UIColor.black
+        activityIndicatorView.hidesWhenStopped = true
+
+        var center = self.view.center
+        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
+            center.y -= (navigationBarFrame.origin.y + navigationBarFrame.size.height)
+        }
+        activityIndicatorView.center = center
+        self.view.addSubview(activityIndicatorView)
+        return activityIndicatorView
+    }()
+    
     var users = [RandomUser]() {
         didSet {
             DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
@@ -29,7 +45,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         configureUI()
         fetchData()
-
+        activityIndicatorView.startAnimating()
     }
     
     @objc func fetchData(){
@@ -55,17 +71,16 @@ class MasterViewController: UITableViewController {
         }
     }
     
+    func configureTableView(){
+        let randomUserTableCell = UINib(nibName: "RandomUserTableCell", bundle: nil)
+        self.tableView.register(randomUserTableCell, forCellReuseIdentifier: "RandomUserTableCell")
+    }
+    
     func configureRefreshView(){
         self.refreshControl = UIRefreshControl()
         self.tableView.alwaysBounceVertical = true
         self.refreshControl?.tintColor = UIColor.black
         self.refreshControl?.addTarget(self, action: #selector(fetchData), for: .valueChanged)
-        //self.tableView.addSubview(refresher)
-    }
-    
-    func configureTableView(){
-        let randomUserTableCell = UINib(nibName: "RandomUserTableCell", bundle: nil)
-        self.tableView.register(randomUserTableCell, forCellReuseIdentifier: "RandomUserTableCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,9 +93,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == MasterVCSegue.showDetail.rawValue {
             if let indexPath = tableView.indexPathForSelectedRow {
-                //let object = users[indexPath.row] as! NSDate
+                let user = users[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                //controller.detailItem = object
+                controller.user = user
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

@@ -10,22 +10,15 @@ import UIKit
 
 class RandomUserTableCell: UITableViewCell {
 
-    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
+    @IBOutlet weak var userImageView: UserImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        userImageView.clipsToBounds = true
-        userImageView.layer.borderWidth = 1
-        userImageView.layer.borderColor = UIColor.blue.cgColor
-        userImageView.layer.cornerRadius = userImageView.bounds.size.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,8 +28,8 @@ class RandomUserTableCell: UITableViewCell {
     }
     
     func configure(with randomUser: RandomUser){
-        userImageView.assignImage(with: randomUser.picture.thumbnail)
-        nameLabel.text = randomUser.name.first
+        userImageView.assignImage(for: randomUser)
+        nameLabel.text = randomUser.name.formattedName
         emailLabel.text = randomUser.email
         phoneLabel.text = randomUser.cell
     }

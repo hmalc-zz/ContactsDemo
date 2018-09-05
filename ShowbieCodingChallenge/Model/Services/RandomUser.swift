@@ -52,6 +52,10 @@ struct RandomUserName: Codable {
     let title: String
     let first: String
     let last: String
+    
+    var formattedName: String {
+        return [title,first,last].map({$0.capitalized}).joined(separator: " ")
+    }
 }
 
 struct RandomUserLocation: Codable {
@@ -72,6 +76,15 @@ struct RandomUserLocation: Codable {
         let offset: String
         let description: String
     }
+    
+    var formattedLocaleInfo: String {
+        var stringComponents: [String] = []
+        stringComponents.append([city,state].map({$0.capitalized}).joined(separator: ", "))
+        if let postCodeToInclude = postcode {
+            stringComponents += [" ",postCodeToInclude]
+        }
+        return stringComponents.joined()
+    }
 }
 
 struct RandomUserRegistrationDate: Codable {
@@ -90,8 +103,13 @@ struct RandomUserLogin: Codable {
 }
 
 struct RandomUserDateOfBirth: Codable {
-    let date: String
+    let date: Date
     let age: Int
+    
+    var formattedDate: String {
+        return date.formatDateAs(format: "MMMM d, yyyy")
+    }
+    
 }
 
 struct RandomUserLocationCoordinates: Codable {

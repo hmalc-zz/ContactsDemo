@@ -20,6 +20,8 @@
 		B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */; };
 		B4EB9235213F74C9004B77D3 /* RandomUserTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */; };
 		B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9236213F7D29004B77D3 /* ImageHelper.swift */; };
+		B4EB923F213F901C004B77D3 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */; };
+		B4EB9242213F9391004B77D3 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9241213F9391004B77D3 /* UserImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserTableCell.swift; sourceTree = "<group>"; };
 		B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomUserTableCell.xib; sourceTree = "<group>"; };
 		B4EB9236213F7D29004B77D3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		B4EB9241213F9391004B77D3 /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 		B4EB922D213F56D1004B77D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4EB923B213F8FEF004B77D3 /* Helper */,
 				B4EB922A213F5633004B77D3 /* Services */,
 			);
 			path = Model;
@@ -158,6 +163,7 @@
 		B4EB9230213F73F8004B77D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4EB9240213F937C004B77D3 /* Subclass */,
 				B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */,
 				B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */,
 				B4EB9236213F7D29004B77D3 /* ImageHelper.swift */,
@@ -173,6 +179,22 @@
 				B4EB91FE213F55C8004B77D3 /* DetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B4EB923B213F8FEF004B77D3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B4EB923E213F901C004B77D3 /* FoundationExtensions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B4EB9240213F937C004B77D3 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				B4EB9241213F9391004B77D3 /* UserImageView.swift */,
+			);
+			path = Subclass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EB9242213F9391004B77D3 /* UserImageView.swift in Sources */,
 				B4EB922C213F5655004B77D3 /* RandomUserAPIService.swift in Sources */,
 				B4EB91FF213F55C8004B77D3 /* DetailViewController.swift in Sources */,
 				B4EB91FD213F55C8004B77D3 /* MasterViewController.swift in Sources */,
@@ -314,6 +337,7 @@
 				B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */,
 				B4EB922F213F57A5004B77D3 /* RandomUser.swift in Sources */,
 				B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */,
+				B4EB923F213F901C004B77D3 /* FoundationExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

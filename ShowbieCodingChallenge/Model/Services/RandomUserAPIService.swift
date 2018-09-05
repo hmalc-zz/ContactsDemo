@@ -78,10 +78,9 @@ class RandomUserAPIService {
             
             do {
                 let decoder = JSONDecoder()
-                //let dateFormatter = DateFormatter()
-                //dateFormatter.dateFormat = flickrTimeFormat
-                //decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                let responseString = String(data: data, encoding: .utf8)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = API_TIME_FORMAT
+                decoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let result = try decoder.decode(RandomUserAPIResponse.self, from: data)
                 completion(result,error)
             } catch let error {
