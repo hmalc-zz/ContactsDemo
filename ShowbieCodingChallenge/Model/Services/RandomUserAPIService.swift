@@ -61,7 +61,7 @@ class RandomUserAPIService {
     /// - Parameter completion: A `RandomUserResponse` containing up to 50 users from Canada as per API docs
     
     static func fetchCanadianRandomUsers(completion: @escaping RandomUserResponse) -> Void {
-        let urlString = constructUrlForRequest(nationalityCodes: [.canada], multipleResultsRequested: 5000)
+        let urlString = constructUrlForRequest(nationalityCodes: [.canada], multipleResultsRequested: 50)
         guard let url = URL(string: urlString) else {
             completion(nil, RandomUserAPIError.invalidInputsError(msg: "Could not initialise `\(urlString)` as valid URL object"))
             return

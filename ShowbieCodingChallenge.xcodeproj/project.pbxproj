@@ -17,6 +17,9 @@
 		B4EB921D213F55CB004B77D3 /* ShowbieCodingChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB921C213F55CB004B77D3 /* ShowbieCodingChallengeUITests.swift */; };
 		B4EB922C213F5655004B77D3 /* RandomUserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB922B213F5655004B77D3 /* RandomUserAPIService.swift */; };
 		B4EB922F213F57A5004B77D3 /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB922E213F57A5004B77D3 /* RandomUser.swift */; };
+		B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */; };
+		B4EB9235213F74C9004B77D3 /* RandomUserTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */; };
+		B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB9236213F7D29004B77D3 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		B4EB921E213F55CB004B77D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4EB922B213F5655004B77D3 /* RandomUserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserAPIService.swift; sourceTree = "<group>"; };
 		B4EB922E213F57A5004B77D3 /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
+		B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserTableCell.swift; sourceTree = "<group>"; };
+		B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomUserTableCell.xib; sourceTree = "<group>"; };
+		B4EB9236213F7D29004B77D3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +109,10 @@
 		B4EB91F9213F55C8004B77D3 /* ShowbieCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				B4EB922D213F56D1004B77D3 /* Model */,
 				B4EB91FA213F55C8004B77D3 /* AppDelegate.swift */,
-				B4EB91FC213F55C8004B77D3 /* MasterViewController.swift */,
-				B4EB91FE213F55C8004B77D3 /* DetailViewController.swift */,
-				B4EB9200213F55C8004B77D3 /* Main.storyboard */,
+				B4EB922D213F56D1004B77D3 /* Model */,
+				B4EB9230213F73F8004B77D3 /* View */,
+				B4EB9231213F7400004B77D3 /* Controller */,
 				B4EB9203213F55CB004B77D3 /* Assets.xcassets */,
 				B4EB9205213F55CB004B77D3 /* LaunchScreen.storyboard */,
 				B4EB9208213F55CB004B77D3 /* Info.plist */,
@@ -148,6 +153,26 @@
 				B4EB922A213F5633004B77D3 /* Services */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B4EB9230213F73F8004B77D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4EB9232213F74C9004B77D3 /* RandomUserTableCell.swift */,
+				B4EB9233213F74C9004B77D3 /* RandomUserTableCell.xib */,
+				B4EB9236213F7D29004B77D3 /* ImageHelper.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4EB9231213F7400004B77D3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B4EB9200213F55C8004B77D3 /* Main.storyboard */,
+				B4EB91FC213F55C8004B77D3 /* MasterViewController.swift */,
+				B4EB91FE213F55C8004B77D3 /* DetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EB9235213F74C9004B77D3 /* RandomUserTableCell.xib in Resources */,
 				B4EB9207213F55CB004B77D3 /* LaunchScreen.storyboard in Resources */,
 				B4EB9204213F55CB004B77D3 /* Assets.xcassets in Resources */,
 				B4EB9202213F55C8004B77D3 /* Main.storyboard in Resources */,
@@ -285,7 +311,9 @@
 				B4EB91FF213F55C8004B77D3 /* DetailViewController.swift in Sources */,
 				B4EB91FD213F55C8004B77D3 /* MasterViewController.swift in Sources */,
 				B4EB91FB213F55C8004B77D3 /* AppDelegate.swift in Sources */,
+				B4EB9234213F74C9004B77D3 /* RandomUserTableCell.swift in Sources */,
 				B4EB922F213F57A5004B77D3 /* RandomUser.swift in Sources */,
+				B4EB9237213F7D29004B77D3 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
