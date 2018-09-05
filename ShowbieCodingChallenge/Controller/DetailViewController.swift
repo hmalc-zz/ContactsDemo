@@ -92,7 +92,7 @@ extension DetailViewController: UITextFieldDelegate {
             emailEntryTextField.backgroundColor = UIColor.white
             return
         }
-        let backgroundColorToAssign = text.isValidEmail() ? UIColor.cyan : UIColor.red
+        let backgroundColorToAssign = text.isValidEmail() ? UIColor.green : UIColor.red
         emailEntryTextField.layer.borderColor = backgroundColorToAssign.cgColor
         if text.isValidEmail() {
             userDataEntryDelegate?.shouldUpdateValidEmail(emailString: text)

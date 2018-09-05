@@ -27,6 +27,6 @@ class UserImageView: UIImageView {
         self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.blue.cgColor
+        self.layer.borderColor = UIColor.red.cgColor
     }
 }
